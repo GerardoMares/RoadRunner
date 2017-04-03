@@ -117,7 +117,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         car.position = CGPoint(x: position, y: self.frame.size.height / 2 + (car.size.height * 2))
         car.zPosition = 0
-        car.physicsBody = SKPhysicsBody(rectangleOf: car.size)
+        car.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: car.size.width / 2, height: car.size.height))
         car.physicsBody?.allowsRotation = false
         car.physicsBody?.isDynamic = true
         car.physicsBody?.categoryBitMask = CarCategory
