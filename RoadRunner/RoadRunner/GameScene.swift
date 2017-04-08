@@ -32,7 +32,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     var gameTimer:Timer!
     var coinTimer:Timer!
     
-    var possibleCars = ["Car"]
+    var possibleCars = ["Ambulance", "Car", "Audi", "Black_viper", "Mini_van", "Police", "taxi", "truck"]
     
     
     
@@ -126,7 +126,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         self.addChild(car)
         
-        let animationDuration:TimeInterval = 2
+        let animationDuration:TimeInterval = 1.25
         
         var actionArray = [SKAction]()
         actionArray.append(SKAction.move(to: CGPoint(x: position, y: -self.frame.size.height / 2), duration: animationDuration))
@@ -136,7 +136,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     
     func addCoins () {
         
-        let coin = SKSpriteNode(imageNamed:  "Coin")
+        let coin = SKSpriteNode(imageNamed:  "Coins")
         coin.name = "Coin"
         
         let randomCoinPosition = GKRandomDistribution(lowestValue: 0, highestValue: Int(self.frame.size.width))
@@ -148,12 +148,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         coin.physicsBody?.isDynamic = true
         coin.physicsBody?.categoryBitMask = CoinCategory
         coin.physicsBody?.usesPreciseCollisionDetection = true
-        coin.setScale(0.05)
+        coin.setScale(0.175)
         
         self.addChild(coin)
         
-        let animationDuration:TimeInterval = 5
-        
+        let animationDuration:TimeInterval = 2
         var actionArray = [SKAction]()
         actionArray.append(SKAction.move(to: CGPoint(x: position, y: -self.frame.size.height / 2), duration: animationDuration))
         actionArray.append(SKAction.removeFromParent())
