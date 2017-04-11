@@ -10,17 +10,19 @@ import SpriteKit
 import GameplayKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate{
-    
+    //emitter for the white road pieces
     var road:SKEmitterNode!
-    
+
     var player = SKSpriteNode()
     var car = SKSpriteNode()
     var coin = SKSpriteNode()
     
+    // used for collision detection
     let PlayerCategory  : UInt32 = 0x1 << 0
     let CarCategory: UInt32 = 0x1 << 1
     let CoinCategory : UInt32 = 0x1 << 2
     
+    //initializes the score label
     var scoreLabel:SKLabelNode!
     var score:Int = 0 {
         didSet {
@@ -29,9 +31,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         }
     }
     
+    //game timers used for the creation of cars and coins after set period
     var gameTimer:Timer!
     var coinTimer:Timer!
     
+    //all possible caars that ca be chosen from
     var possibleCars = ["Ambulance", "Car", "Audi", "Black_viper", "Mini_van", "Police", "taxi", "truck"]
     
     
@@ -71,7 +75,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         self.addChild(player)
 
         gameTimer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(addCars), userInfo: nil, repeats: true)
-        coinTimer = Timer.scheduledTimer(timeInterval: 2.5 , target: self, selector: #selector(addCoins), userInfo: nil, repeats: true)
+        coinTimer = Timer.scheduledTimer(timeInterval: 4.0 , target: self, selector: #selector(addCoins), userInfo: nil, repeats: true)
    
     }
     
@@ -79,6 +83,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         var firstBody = SKPhysicsBody();
         var secondBody = SKPhysicsBody();
         
+        //makes sure first body is always the player
         if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
             firstBody = contact.bodyA;
             secondBody = contact.bodyB;
@@ -88,6 +93,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             secondBody = contact.bodyA;
         }
         
+        //we collided with a car
         if (firstBody.node?.name == "Man" && secondBody.node?.name == "Car"){
             firstBody.node?.removeFromParent()
             secondBody.node?.removeFromParent()
@@ -99,6 +105,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             self.view?.presentScene(gameOver, transition: transition)
         }
         
+        //we collected a coin
         if (firstBody.node?.name == "Man" && secondBody.node?.name == "Coin"){
             secondBody.node?.removeFromParent()
             
@@ -126,7 +133,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         self.addChild(car)
         
-        let animationDuration:TimeInterval = 1.25
+        let animationDuration:TimeInterval = 2
         
         var actionArray = [SKAction]()
         actionArray.append(SKAction.move(to: CGPoint(x: position, y: -self.frame.size.height / 2), duration: animationDuration))
@@ -148,11 +155,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         coin.physicsBody?.isDynamic = true
         coin.physicsBody?.categoryBitMask = CoinCategory
         coin.physicsBody?.usesPreciseCollisionDetection = true
-        coin.setScale(0.175)
+        coin.physicsBody?.affectedByGravity = true
+        coin.setScale(0.15)
         
         self.addChild(coin)
         
-        let animationDuration:TimeInterval = 2
+        let animationDuration:TimeInterval = 2.5
         var actionArray = [SKAction]()
         actionArray.append(SKAction.move(to: CGPoint(x: position, y: -self.frame.size.height / 2), duration: animationDuration))
         actionArray.append(SKAction.removeFromParent())

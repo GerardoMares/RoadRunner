@@ -21,6 +21,8 @@ class GameOverScene: SKScene {
         scoreLabel = self.childNode(withName: "scoreLabel") as! SKLabelNode
         scoreLabel.text = "\(score)"
         
+        scoreLabel.color = UIColor.red
+        
 
         newGameButtonNode = self.childNode(withName: "newGameButton") as! SKSpriteNode
         newGameButtonNode.texture = SKTexture(imageNamed: "newGameButton")

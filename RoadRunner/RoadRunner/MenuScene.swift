@@ -31,6 +31,8 @@ class MenuScene: SKScene {
                 let transition = SKTransition.flipHorizontal(withDuration: 0.5)
                 let gameScene = GameScene(size: self.size)
                 self.view!.presentScene(gameScene, transition: transition)
+            } else {
+                print("no")
             }
 
         }

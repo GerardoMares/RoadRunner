@@ -18,7 +18,6 @@
 		0DAA13EE1E7E306C00369917 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAA13E81E7E306C00369917 /* MenuScene.swift */; };
 		0DAA13EF1E7E306C00369917 /* newGameButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DAA13E91E7E306C00369917 /* newGameButton.png */; };
 		0DAA13F21E7E30C300369917 /* road.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0DAA13F01E7E30C300369917 /* road.sks */; };
-		0DAA13F31E7E30C300369917 /* yellowroad.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0DAA13F11E7E30C300369917 /* yellowroad.sks */; };
 		0DAA13FA1E7E382A00369917 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DAA13F81E7E382A00369917 /* LaunchScreen.storyboard */; };
 		0DAA13FB1E7E382A00369917 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DAA13F91E7E382A00369917 /* Main.storyboard */; };
 /* End PBXBuildFile section */
@@ -37,7 +36,6 @@
 		0DAA13E81E7E306C00369917 /* MenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
 		0DAA13E91E7E306C00369917 /* newGameButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newGameButton.png; sourceTree = "<group>"; };
 		0DAA13F01E7E30C300369917 /* road.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = road.sks; sourceTree = "<group>"; };
-		0DAA13F11E7E30C300369917 /* yellowroad.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = yellowroad.sks; sourceTree = "<group>"; };
 		0DAA13F81E7E382A00369917 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0DAA13F91E7E382A00369917 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -84,7 +82,6 @@
 				0D4B347C1E713F50004D858C /* GameScene.sks */,
 				0DAA13E51E7E306C00369917 /* GameOverScene.sks */,
 				0DAA13F01E7E30C300369917 /* road.sks */,
-				0DAA13F11E7E30C300369917 /* yellowroad.sks */,
 				0DAA13E91E7E306C00369917 /* newGameButton.png */,
 				0D4B348C1E713F50004D858C /* Info.plist */,
 			);
@@ -151,7 +148,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0DAA13F31E7E30C300369917 /* yellowroad.sks in Resources */,
 				0DAA13EB1E7E306C00369917 /* GameOverScene.sks in Resources */,
 				0DAA13EF1E7E306C00369917 /* newGameButton.png in Resources */,
 				0DAA13FA1E7E382A00369917 /* LaunchScreen.storyboard in Resources */,
@@ -278,6 +274,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8QW93NWF2V;
 				INFOPLIST_FILE = RoadRunner/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = grm738.RoadRunner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -291,6 +288,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8QW93NWF2V;
 				INFOPLIST_FILE = RoadRunner/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = grm738.RoadRunner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
